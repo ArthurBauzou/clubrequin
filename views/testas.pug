@@ -1,0 +1,38 @@
+
+div#testas
+    div.w3-margin-bottom(style='display:flex')
+        button(onclick='jet_2d10(1)' class='w3-blue w3-large w3-button') Faire un jet
+        button(onclick='jet_2d10(10)' class='w3-blue w3-large w3-button') Faire 10 jets
+        button(onclick='jet_2d10(100)' class='w3-blue w3-large w3-button') Faire 100 jets
+        button(onclick='jet_2d10(100000)' class='w3-blue w3-large w3-button') Apocalypse
+
+
+    div.w3-margin-bottom(style='display:flex;justify-content:space-between')
+        div(style='display:flex')
+            div.w3-container.w3-margin-right
+                p#results
+        div
+        div(style='display:flex')
+            button#pourcent.w3-large.w3-button(onclick='pourcent()' style='flex-shrink:0') %
+            div.w3-container(style='display:flex;flex-shrink:0')
+                p total jets : &nbsp;
+                p#totaljets 0
+
+    table.w3-table.w3-striped
+        tr
+            th valeur competence
+            th Aucune Réussite
+            th 1 réussite (facile)
+            th 2 réussites (difficile)
+            th 3 réussites (très difficile)
+        - let n = 1
+        while n < 13
+            tr(id='row'+n)
+                th= n++
+                th(class=('win0')) 0
+                th(class=('win1')) 0
+                th(class=('win2')) 0
+                th(class=('win3')) 0
+
+script(src='/javascripts/testas.js')
+
